@@ -7,4 +7,4 @@ class Statement:
         self.transactions = []
 
     def add_transaction(self, transaction):
-        self.transactions.append(transaction)
+        self.transactions.insert(0, transaction)

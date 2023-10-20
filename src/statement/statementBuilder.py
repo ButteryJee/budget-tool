@@ -22,4 +22,3 @@ class StatementBuilder:
                 self.statement.endDate = transaction.date
                 self.statement.endingBalance = transaction.balance
         self.statement.balanceChange = self.statement.startingBalance - self.statement.endingBalance
-        print(self.statement.__dict__)
