@@ -23,4 +23,5 @@ class CreditUnionTransactionFactory:
         if text == "":
             return 0.0
         else:
-            return float(text)
+            num = float(text)
+            return num

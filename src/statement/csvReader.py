@@ -17,10 +17,7 @@ class CsvReader:
         with open(TEMP_FILE, newline="") as f:
             reader = csv.DictReader(f)
             for i, row in enumerate(reader):
-                if i == 0:
-                    self.headers = row
-                else:
-                    self.rows.append(row)
+                self.rows.append(row)
             f.close()
         self.remove_temp()
 

@@ -1,0 +1,10 @@
+BUDGET_AMOUNTS = {"groceries": 500,
+                  "utilities": 600,
+                  "car": 800,
+                  "ignore": 0,
+                  "savings": 500,
+                  "household": 150,
+                  "gas": 200,
+                  "entertainment": 150,
+                  "rent": 2150.0,
+                  "income": 0}
