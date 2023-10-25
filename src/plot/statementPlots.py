@@ -11,7 +11,9 @@ def plot_statement_balance(statement, axes):
               "gas": "k",
               "entertainment": "k",
               "rent": "k",
-              "income": "k"}
+              "income": "k",
+              "loans": "k",
+              "health": "k"}
     x = []
     y = []
     c = []
@@ -29,14 +31,21 @@ def plot_statement_balance(statement, axes):
 def plot_income_spent(budget, axes):
     total = 0
     income = 0
+    budgeted = 0
     for key in budget.categories.keys():
         if key == "income":
             income = income + budget.categories[key].spent
         else:
             total = total + abs(budget.categories[key].spent)
+            budgeted = budgeted + budget.categories[key].budgeted
+    # Add $500 for discretionary spending
+    budgeted = budgeted + 500
+    total = total + 500
     container = axes.bar(x="Income", height=income, zorder=2)
     axes.bar_label(container, fmt='${:,.0f}')
     container = axes.bar(x="Spent", height=total, zorder=2)
+    axes.bar_label(container, fmt='${:,.0f}')
+    container = axes.bar(x="Budgeted", height=budgeted, zorder=2)
     axes.bar_label(container, fmt='${:,.0f}')
     axes.grid(zorder=1)
 
@@ -66,7 +75,7 @@ def plot_category_bar(budget, axes):
             else:
                 color = "#2ca02c"
             container = axes.bar(x=key, height=abs(category.spent), color=color, zorder=2)
-            axes.bar_label(container, fmt='${:.0f} /\n'+"$"+str(int(category.budgeted)))
+            axes.bar_label(container, fmt='${:.0f}\n'+"$"+str(int(category.budgeted)))
     for label in axes.get_xticklabels():
         label.set_rotation(45)
         label.set_ha('right')

@@ -7,4 +7,6 @@ BUDGET_AMOUNTS = {"groceries": 500,
                   "gas": 200,
                   "entertainment": 150,
                   "rent": 2150.0,
-                  "income": 0}
+                  "income": 0,
+                  "loans": 2000,
+                  "health": 100}
